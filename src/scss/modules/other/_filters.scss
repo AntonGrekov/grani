@@ -1,0 +1,27 @@
+.filters {
+	background: #FFFFFF;
+	box-shadow: 0px 4px 17px rgba(0, 0, 0, 0.15);
+
+	&__head {
+		@include flexbox();
+		@include justify-content($value: center);
+		@include align-items($value: center);
+		height: 60px;
+		
+		border-bottom: 1px solid #F0F0F0;
+	}
+
+	&__head-title {
+		font-size: 18px;
+		line-height: 1;
+		text-align: center;
+	}
+	
+	&__block {
+		border-bottom: 1px solid #F0F0F0;
+		
+		&:last-child {
+			border-bottom: none;
+		}
+	}
+}

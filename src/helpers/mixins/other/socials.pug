@@ -1,0 +1,27 @@
+mixin socials__link(options)
+	- options = options || {};
+
+	- var iconClasses = [];
+	- var icon = '#icon-' + options.icon;
+
+	- iconClasses.push('socials__icon_' + options.icon);
+
+	a.socials__link(href=options.url, title=options.title, target="_blank")
+		.socials__icon(class=iconClasses)
+			svg.socials__svg
+				use(xlink:href=icon)
+
+mixin socials(options)
+	- options = options || {};
+	- var classes = [];
+
+	if options.theme
+		- classes.push('socials_theme_' + options.theme);
+
+	.socials(class=classes)
+		each item in config.socials
+			+socials__link({
+				title: item.title,
+				url: item.url,
+				icon: item.icon
+			})

@@ -1,0 +1,23 @@
+.description {
+	&__title {
+		margin-bottom: 30px;
+
+		font-size: 24px;
+	}
+	
+	&__text {
+		font-size: 18px;
+		
+		p {
+			margin: 20px 0;
+
+			&:first-child {
+				margin-top: 0;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}

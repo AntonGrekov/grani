@@ -1,0 +1,95 @@
+-
+	var footerNavItems = {
+		catalog: {
+			title: 'Каталог',
+			list: [
+				{
+					title: 'Стандартный размер',
+					url: 'javascript:void(0);'
+				},
+				{
+					title: 'Индивидуальный размер',
+					url: 'javascript:void(0);'
+				},
+				{
+					title: 'Мозайка',
+					url: 'javascript:void(0);'
+				}
+			]
+		},
+		about: {
+			title: 'О Grani',
+			list: [
+				{
+					title: 'Доставка и оплата',
+					url: 'javascript:void(0);'
+				},
+				{
+					title: 'Партнерам',
+					url: 'javascript:void(0);'
+				},
+				{
+					title: 'Дизайнерам',
+					url: 'javascript:void(0);'
+				},
+				{
+					title: 'Новости',
+					url: 'javascript:void(0);'
+				},
+				{
+					title: 'Акции',
+					url: 'javascript:void(0);'
+				}
+			]
+		}
+	};
+
+footer.footer
+	.footer__container.footer__container_primary
+		include ../helpers/mixins/navigation/footer-nav
+		.wrap-footer-nav
+			.wrap-footer-nav__block
+				+footer-nav(footerNavItems.catalog)
+			.wrap-footer-nav__block
+				+footer-nav(footerNavItems.about)
+	.footer__container.footer__container_secondary
+		.footer-additional
+			.footer-additional__row
+				.footer-mixed-content
+					.footer-mixed-content__row
+						.footer-mixed-content__block.footer-mixed-content__block_primary
+							.footer-mixed-content__cell
+								.footer-mixed-content__title.footer-mixed-content__title_large #{config.phone}
+							.footer-mixed-content__cell
+								.footer-mixed-content__title #{config.address}
+						.footer-mixed-content__block
+							include ../helpers/mixins/other/contact-action
+							.footer-mixed-content__cell
+								+contact-action({
+									title: 'Звонок с сайта',
+									icon: 'phone',
+									jsClass: 'js-call-to-action'
+								})
+							.footer-mixed-content__cell
+								+contact-action({
+									title: 'Задать вопрос',
+									icon: 'email'
+								})
+			.footer-additional__row
+				.footer-mixed-content.footer-mixed-content_icons
+					.footer-mixed-content__row
+						.footer-mixed-content__block.footer-mixed-content__block_primary
+							.footer-mixed-content__title Присоединяйтесь
+						.footer-mixed-content__block.footer-mixed-content__block_secondary
+							include ../helpers/mixins/other/socials
+							+socials()
+					.footer-mixed-content__row
+						.footer-mixed-content__block.footer-mixed-content__block_primary
+							.footer-mixed-content__title Способы оплаты
+						.footer-mixed-content__block.footer-mixed-content__block_secondary
+							include ../helpers/mixins/other/type-payments
+							+type-payments()
+			.footer-additional__row
+				small.copyright
+					span.copyright__brand Grani
+					|  магазин зеркальной плитки

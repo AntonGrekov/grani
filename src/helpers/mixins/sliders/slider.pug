@@ -1,0 +1,38 @@
+mixin slider(options)
+	- options = options || {};
+	- var classes = [];
+
+	if options.theme
+		- classes.push('slider_theme_' + options.theme);
+
+	if options.jsClass
+		- classes.push(options.jsClass);
+
+	.slider.swiper-container(class=classes)
+		.slider__container.swiper-wrapper
+			block
+		.slider__controls
+
+			if options.buttons
+				button.slider__button.slider__button_prev(type="button", title="Предыдущий")
+					.slider__button-icon
+						svg.slider__button-svg
+							use(xlink:href='#icon-arrow-long-left')
+
+			if options.pagination
+				.slider__wrap-pagination
+					.slider__pagination
+
+			if options.buttons
+				button.slider__button.slider__button_next(type="button", title="Следующий")
+					.slider__button-icon
+						svg.slider__button-svg
+							use(xlink:href='#icon-arrow-long-right')
+
+		if options.more
+			.slider__more.js-slider-more
+				button.slider__more-button.js-slider-more(type="button")
+					.slider__more-icon
+						svg.slider__more-svg
+							use(xlink:href="#icon-mouse")
+					.slider__more-text Продолжить

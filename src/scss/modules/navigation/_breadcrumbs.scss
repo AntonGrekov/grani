@@ -1,0 +1,40 @@
+.breadcrumbs {
+	font-size: 24px;
+	color: #000000;
+
+	&__item,
+	&__separator {
+		display: inline-block;
+
+		vertical-align: middle;
+	}
+	
+	&__link {
+		color: #000000;
+		text-decoration: none;
+		
+		&:hover {
+			color: #000000;
+			text-decoration: underline;
+		}
+	}
+	
+	&__separator {
+		margin: 0 10px;
+	}
+
+	&__separator-icon {
+		width: 21px;
+		height: 8px;
+		
+		color: #FF0101;
+	}
+	
+	&__separator-svg {
+		display: block;
+		width: 100%;
+		height: 100%;
+		
+		fill: currentColor;
+	}
+}

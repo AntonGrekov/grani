@@ -1,0 +1,27 @@
+.toggle-nav {
+	display: inline-block;
+	width: 50px;
+	padding: 0;
+	
+	vertical-align: middle;
+	
+	background: none;
+	border: none;
+	cursor: pointer;
+	
+	&__element {
+		display: block;
+		height: 5px;
+		margin: 10px 0;
+		
+		background: #000000;
+		
+		&:first-child {
+			margin-top: 0;
+		}
+		
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}

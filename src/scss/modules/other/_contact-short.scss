@@ -1,0 +1,57 @@
+.contact-short {
+	@include flexbox();
+	@include align-items($value: center);
+
+	font-weight: 300;
+	font-size: 24px;
+	line-height: 1;
+	color: #000000;
+	
+	&__numbers,
+	&__apps {
+		display: inline-block;
+	}
+
+	&__numbers {
+		margin-right: 18px;
+	}
+	
+	&__numbers-text {
+		&::after {
+			content: "/";
+
+			margin: 0 0.2em;
+		}
+		
+		&:last-child::after {
+			content: none;
+		}
+	}
+	
+	&__apps-icon {
+		display: inline-block;
+		margin-right: 20px;
+		
+		vertical-align: middle;
+		
+		&:last-child {
+			margin-right: 0;
+		}
+		
+		&_telegram {
+			width: 26px;
+			height: 23px;
+		}
+		
+		&_viber {
+			width: 21px;
+			height: 23px;
+		}
+	}
+	
+	&__apps-svg {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+}

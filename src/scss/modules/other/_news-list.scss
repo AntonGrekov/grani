@@ -1,0 +1,55 @@
+.news-list {
+	&__title {
+		font-size: 36px;
+	}
+
+	&__title-link {
+		text-decoration: none;
+		
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+	
+	&__date {
+		margin-bottom: 30px;
+
+		font-size: 14px;
+	}
+	
+	&_main {
+		@include flexbox();
+		@include flex-wrap($value: wrap);
+		@include justify-content($value: space-between);
+	}
+
+	&_main &__item {
+		width: 418px;
+		
+		@media screen and (max-width: $screen_desktop-medium) {
+			width: 30%;
+		}
+		
+		@media screen and (max-width: $screen_tablet-large-s) {
+			width: 100%;
+			margin-bottom: 40px;
+		}
+	}
+
+	&_main &__title {
+		@media screen and (max-width: $screen_desktop-medium) {
+			font-size: 24px;
+		}
+	}
+
+	&_main &__date {
+		@media screen and (max-width: $screen_desktop-medium) {
+			margin-bottom: 15px;
+		}
+		
+		@media screen and (max-width: $screen_tablet-large-s) {
+			width: 100%;
+			margin-bottom: 5px;
+		}
+	}
+}

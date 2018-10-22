@@ -1,0 +1,59 @@
+.footer {
+	@include flexbox();
+	@include flex-direction($value: row-reverse);
+	
+	@media screen and (max-width: $screen_tablet-medium) {
+		display: block;
+	}
+
+	&__container {
+		width: 50%;
+		padding: 60px $main-spacing-vertical;
+
+		color: #ffffff;
+		
+		@media screen and (max-width: $screen_desktop-large) {
+			padding: $main-spacing-vertical_desktop-medium;
+		}
+		
+		@media screen and (max-width: $screen_handset-large) {
+			padding: $main-spacing-vertical_handset;
+		}
+
+		&_primary {
+			background: #62646a;
+			
+			@media screen and (max-width: $screen_desktop-large) {
+				width: 45%;
+			}
+			
+			@media screen and (max-width: $screen_desktop-large) {
+				width: 35%;
+			}
+			
+			@media screen and (max-width: $screen_tablet-large) {
+				width: 30%;
+			}
+		}
+
+		&_secondary {
+			background: #232222;
+			
+			@media screen and (max-width: $screen_desktop-large) {
+				width: 55%;
+			}
+			
+			@media screen and (max-width: $screen_desktop-large) {
+				width: 65%;
+			}
+			
+			@media screen and (max-width: $screen_tablet-large) {
+				width: 70%;
+			}
+		}
+		
+		@media screen and (max-width: $screen_tablet-medium) {
+			width: 100%;
+		}
+	}
+}

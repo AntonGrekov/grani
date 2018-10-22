@@ -1,0 +1,13 @@
+.container {
+	&__inner {
+		padding: 0 $main-spacing-vertical;
+
+		@media screen and (max-width: $screen_desktop-large) {
+			padding: 0 $main-spacing-vertical_desktop-medium;
+		}
+		
+		@media screen and (max-width: $screen_handset-large) {
+			padding: 0 $main-spacing-vertical_handset;
+		}
+	}
+}

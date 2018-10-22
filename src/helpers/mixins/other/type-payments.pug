@@ -1,0 +1,25 @@
+mixin type-payments__block(options)
+	- options = options || {};
+	- var classes = [];
+	- var icon = '#icon-' + options.icon;
+
+	- classes.push('type-payments__icon_' + options.icon);
+
+	.type-payments__icon(class=classes, title=options.title)
+		svg.type-payments__svg
+			use(xlink:href=icon)
+
+mixin type-payments()
+	.type-payments
+		+type-payments__block({
+			title: 'MasterCard',
+			icon: 'master-card'
+		})
+		+type-payments__block({
+			title: 'Visa',
+			icon: 'visa'
+		})
+		+type-payments__block({
+			title: 'PayPal',
+			icon: 'paypal'
+		})

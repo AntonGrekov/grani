@@ -1,0 +1,19 @@
+mixin contact-action(options)
+	- options = options || {};
+	- var classes = [];
+	- var icon = '#icon-' + options.icon;
+
+	if options.theme
+		- classes.push('contact-action_theme_' + options.theme);
+
+	if options.jsClass
+		- classes.push(options.jsClass);
+
+	.contact-action(class=classes)
+		.contact-action__button
+			.contact-action__icon
+				svg.socials__svg
+					use(xlink:href=icon)
+
+		if options.title
+			.contact-action__title= options.title

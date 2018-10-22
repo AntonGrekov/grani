@@ -1,0 +1,27 @@
+.section-separator {
+	height: 40px;
+	
+	&_small {
+		height: 10px;
+	}
+
+	&_medium-s {
+		height: 20px;
+	}
+	
+	&_medium {
+		height: 30px;
+	}
+	
+	&_large-s {
+		height: 60px;
+	}
+	
+	&_large {
+		height: 80px;
+	}
+
+	&_main {
+		height: 154px;
+	}
+}

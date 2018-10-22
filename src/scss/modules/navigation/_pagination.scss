@@ -1,0 +1,25 @@
+.pagination {
+	text-align: center;
+
+	&__button {
+		display: inline-block;
+		height: 45px;
+		margin: 0 10px;
+		padding: 0 15px;
+
+		font-size: 30px;
+		line-height: 45px;
+		vertical-align: middle;
+		color: #000000;
+
+		background: #ffffff;
+		
+		&:first-child {
+			margin-left: 0;
+		}
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}

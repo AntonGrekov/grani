@@ -1,0 +1,43 @@
+.socials {
+	@include flexbox();
+	@include align-items($value: center);
+	
+	&__link {
+		display: inline-block;
+		margin-right: 30px;
+		
+		color: #C0C0C0;
+		vertical-align: middle;
+
+		&:last-child {
+			margin-right: 0;
+		}
+		
+		&:hover {
+			color: #ffffff;
+		}
+	}
+	
+	&__icon {
+		height: 40px;
+
+		&_instagram {
+			width: 40px;
+		}
+
+		&_vk {
+			width: 70px;
+		}
+
+		&_youtube {
+			width: 58px;
+		}
+	}
+	
+	&__svg {
+		width: 100%;
+		height: 100%;
+		
+		fill: currentColor;
+	}
+}

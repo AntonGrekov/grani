@@ -1,0 +1,7 @@
+mixin news-list__item(options)
+	- options = options || {};
+
+	.news-list__item
+		.news-list__date= options.date
+		.news-list__title
+			a.news-list__title-link(href="javascript:void(0);")= options.title

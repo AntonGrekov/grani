@@ -1,0 +1,24 @@
+mixin nav-product__item(options)
+	- options = options || {};
+	- var classes = [];
+	- var imageStyles = 'background-image: url(' + options.image + ')';
+
+	if options.active
+		- classes.push('nav-product__item_active');
+
+	a.nav-product__item(href="javascript:void(0);", class=classes)
+		.nav-product__image(style=imageStyles)
+		.nav-product__content
+			.nav-product__title!= options.title
+
+mixin nav-product(options)
+	- options = options || {};
+	- var classes = [];
+
+	if options.theme
+		- classes.push('nav-product_theme_' + options.theme);
+
+	.nav-product(class=classes)
+		.nav-product__inner
+			each item in options.list
+				+nav-product__item(item)

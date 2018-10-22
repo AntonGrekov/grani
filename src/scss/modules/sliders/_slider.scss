@@ -1,0 +1,103 @@
+.slider {
+	&__controls {
+		position: absolute;
+		right: 100px;
+		bottom: 220px;
+		z-index: 1;
+		
+		@include flexbox();
+		@include justify-content($value: center);
+		@include align-items($value: center);
+	}
+	
+	&__wrap-pagination {
+		min-width: 60px;
+		margin: 0 8px;
+		
+		text-align: center;
+	}
+	
+	&__pagination {
+		&_fraction {
+			font-weight: 500;
+			font-size: 24px;
+			line-height: 1;
+		}
+	}
+	
+	&__button {
+		padding: 0;
+		
+		color: #000000;
+		
+		background: none;
+		border: none;
+		cursor: pointer;
+		
+		&_disabled {
+			opacity: 0.2;
+			
+			cursor: default;
+		}
+	}
+	
+	&__button-icon {
+		width: 32px;
+		height: 8px;
+	}
+	
+	&__button-svg {
+		display: block;
+		width: 100%;
+		height: 100%;
+		
+		fill: currentColor;
+	}
+	
+	&__more {
+		position: absolute;
+		right: 0;
+		bottom: 80px;
+		left: 0;
+		z-index: 1;
+		
+		@include flexbox();
+		@include justify-content($value: center);
+		
+		text-align: center;
+	}
+	
+	&__more-button {
+		display: inline-block;
+		@include flexbox();
+		@include align-items($value: center);
+		padding: 0;
+		
+		color: #000000;
+		
+		background: none;
+		border: none;
+		cursor: pointer;
+	}
+	
+	&__more-icon {
+		@include flex($fg: 0, $fs: 0, $fb: 43px);
+		width: 43px;
+		height: 61px;
+		margin-right: 20px;
+	}
+	
+	&__more-svg {
+		display: block;
+		width: 100%;
+		height: 100%;
+		
+		fill: currentColor;
+	}
+	
+	&__more-text {
+		font-size: 18px;
+		line-height: 1;
+		text-transform: uppercase;
+	}
+}

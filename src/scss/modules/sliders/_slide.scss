@@ -1,0 +1,50 @@
+.slide {
+	position: relative;
+	
+	&__image {
+		background-repeat: no-repeat;
+		background-position: 0 0;
+		background-size: cover;
+		
+		&::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			
+			background: rgba(255, 255, 255, 0.65);
+		}
+		
+		&_full-height {
+			height: 1080px;
+			height: 100vh;
+		}
+		
+		&_short {
+			height: 194px;
+		}
+	}
+	
+	&__container {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 1;
+		
+		padding: 240px 0 0;
+	}
+	
+	&__content {
+		max-width: 1150px;
+	}
+	
+	&__title {
+		font-weight: 700;
+		font-size: 96px;
+		line-height: 1.17;
+	}
+}

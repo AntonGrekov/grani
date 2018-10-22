@@ -1,0 +1,46 @@
+header.header
+	.header__container.container
+		.header__container-inner.container__inner
+			.header__row
+				.header__cell
+					.header__block
+						a.header__logo.logo(href="index.html")
+							img.logo__image(src="i/svg/logo.svg", alt="Логотип. Grani зеркальная плитка")
+					.header__block
+						.contact-short
+							.contact-short__numbers
+								span.contact-short__numbers-text +7 (996) 308 06 06
+								span.contact-short__numbers-text +7 (996) 308 06 06
+							.contact-short__apps
+								span.contact-short__apps-icon.contact-short__apps-icon_telegram(title="Telegram")
+									svg.contact-short__apps-svg
+										use(xlink:href='#icon-telegram')
+								span.contact-short__apps-icon.contact-short__apps-icon_viber(title="Viber")
+									svg.contact-short__apps-svg
+										use(xlink:href='#icon-viber')
+					.header__block
+						include ../helpers/mixins/other/contact-action
+						+contact-action({
+							icon: 'phone',
+							theme: 'light',
+							jsClass: 'js-call-to-action'
+						})
+				.header__cell
+					.header__block
+						button.button.button_icon-default.button_map(type="button", title="Карта")
+							span.button__inner
+								span.button__icon
+									svg.button__icon-svg
+										use(xlink:href='#icon-map')
+					.header__block
+						button.button.button_icon-default.button_cart(type="button", title="Корзина")
+							span.button__inner
+								span.button__icon
+									svg.button__icon-svg
+										use(xlink:href='#icon-cart')
+					.header__block
+						button.toggle-nav(type="button", title="Навигация")
+							span.toggle-nav__icon
+								span.toggle-nav__element
+								span.toggle-nav__element
+								span.toggle-nav__element

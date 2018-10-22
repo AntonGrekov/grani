@@ -1,0 +1,63 @@
+.catalog-card {
+	&__cover {
+		position: relative;
+		display: block;
+		margin-bottom: 20px;
+		
+		text-decoration: none;
+	}
+	
+	&__cover-overlay {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		
+		@include flexbox();
+		@include justify-content($value: center);
+		@include align-items($value: center);
+		
+		background: rgba(0, 0, 0, 0.25);
+		opacity: 0;
+		
+		transition: opacity 0.3s;
+	}
+	
+	&__cover:hover &__cover-overlay {
+		opacity: 1;
+	}
+	
+	&__image {
+		display: block;
+		margin: 0 auto;
+	}
+
+	&__title {
+		margin-bottom: 10px;
+		padding: 0 5px;
+
+		font-size: 18px;
+		text-align: center;
+	}
+	
+	&__price {
+		padding: 0 5px;
+
+		font-size: 30px;
+		color: #848689;
+		text-align: center;
+	}
+	
+	&__price-text {
+		margin-right: 20px;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+
+	&__hide-area {
+		display: none;
+	}
+}

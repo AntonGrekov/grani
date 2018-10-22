@@ -1,0 +1,13 @@
+.footer-additional {
+	&__row {
+		margin-bottom: 80px;
+		
+		@media screen and (max-width: $screen_desktop-large) {
+			margin-bottom: 40px;
+		}
+		
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}

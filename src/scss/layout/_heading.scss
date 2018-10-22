@@ -1,0 +1,4 @@
+.heading {
+	@include flexbox();
+	@include justify-content($value: space-between);
+}

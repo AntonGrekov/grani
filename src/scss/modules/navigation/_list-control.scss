@@ -1,0 +1,52 @@
+.list-control {
+	font-size: 18px;
+
+	&__item {
+		display: inline-block;
+		margin-right: 20px;
+		
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+	
+	&__label {
+		margin-right: 0.2em;
+	}
+
+	&__value {
+		font-weight: 700;
+		color: #000000;
+		text-decoration: none;
+		
+		cursor: pointer;
+		
+		&:hover {
+			color: #000000;
+			text-decoration: none;
+		}
+	}
+	
+	&__value-text,
+	&__value-icon{
+		display: inline-block;
+		
+		vertical-align: middle;
+	}
+	
+	&__value-icon {
+		width: 8px;
+		height: 14px;
+		margin-left: 0.4em;
+	}
+	
+	&__value-svg {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+	
+	&__value_desc &__value-icon {
+		transform: rotate(180deg);
+	}
+}

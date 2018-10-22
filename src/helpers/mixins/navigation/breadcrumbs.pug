@@ -1,0 +1,23 @@
+mixin breadcrumbs__item(options)
+	- options = options || {};
+
+	.breadcrumbs__item
+		if options.url
+			a.breadcrumbs__link(href=options.url)= options.title
+		else
+			span.breadcrumbs__text= options.title
+
+mixin breadcrumbs(options)
+	- options = options || {};
+
+	.breadcrumbs
+		+breadcrumbs__item({
+			title: 'Grani ',
+			url: 'index.html'
+		})
+		each item in options.list
+			.breadcrumbs__separator
+				.breadcrumbs__separator-icon
+					svg.breadcrumbs__separator-svg
+						use(xlink:href='#icon-arrow-medium-right')
+			+breadcrumbs__item(item)

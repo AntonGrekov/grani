@@ -1,0 +1,17 @@
+mixin footer-nav__item(options)
+	- options = options || {};
+
+	li.footer-nav__list-item
+		a.footer-nav__list-link(href=options.url)= options.title
+
+mixin footer-nav(options)
+	- options = options || {};
+
+	.footer-nav
+		.footer-nav__title= options.title
+		ul.footer-nav__list
+			each item in options.list
+				+footer-nav__item({
+					title: item.title,
+					url: item.url
+				})

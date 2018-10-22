@@ -1,0 +1,33 @@
+.wrap-footer-nav {
+	@include flexbox();
+	@include flex-wrap($value: wrap);
+	
+	@media screen and (max-width: $screen_desktop-large) {
+		display: block;
+	}
+	
+	@media screen and (max-width: $screen_tablet-medium) {
+		@include flexbox();
+	}
+	
+	&__block {
+		margin-right: 80px;
+		margin-bottom: 40px;
+		
+		@media screen and (max-width: $screen_desktop-large) {
+			margin-right: 40px;
+		}
+		
+		@media screen and (max-width: $screen_desktop-large) {
+			margin: 0 0 40px;
+		}
+		
+		@media screen and (max-width: $screen_tablet-medium) {
+			margin-right: 40px;
+		}
+		
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}

@@ -1,0 +1,132 @@
+// ---------------------------------------------
+// CSS Grid, simple old 2013- and modern spec.
+// ---------------------------------------------
+
+@mixin display-grid {
+	display: -ms-grid;
+	display: grid;
+}
+
+@mixin grid-template-rows($value, $repeat: false) {
+	@if($repeat) {
+		-ms-grid-rows: unquote("(#{$value})[#{$repeat}]");
+		grid-template-rows: repeat($repeat, $value)
+	} @else {
+		-ms-grid-rows: $value;
+		grid-template-rows: $value;
+	}
+}
+
+@mixin grid-template-columns($value, $repeat: false) {
+	@if($repeat) {
+		-ms-grid-columns: unquote("(#{$value})[#{$repeat}]");
+		grid-template-columns: repeat($repeat, $value);
+	} @else {
+		-ms-grid-columns: $value;
+		grid-template-columns: $value;
+	}
+}
+
+@mixin grid-row($value, $span: false) {
+	@if($span) {
+		-ms-grid-row: $value;
+		-ms-grid-row-span: $span;
+		grid-row: unquote("#{$value} / span #{$span}");
+	} @else {
+		-ms-grid-row: $value;
+		grid-row: $value;
+	}
+}
+
+@mixin grid-column($value, $span: false) {
+	@if($span) {
+		-ms-grid-column: $value;
+		-ms-grid-column-span: $span;
+		grid-column: unquote("#{$value} / span #{$span}");
+	} @else {
+		-ms-grid-column: $value;
+		grid-column: $value;
+	}
+}
+
+@mixin align-self($value) {
+	-ms-grid-row-align: $value;
+	align-self: $value;
+}
+
+@mixin justify-self($value) {
+	-ms-grid-column-align: $value;
+	justify-self: $value;
+}
+
+// ---------------------------------------------
+// Using feature queries to reset certain properties
+// used for mobile-first non-CSS Grid browsers
+//
+// More examples on smart and simple overriding:
+// https://rachelandrew.co.uk/css/cheatsheets/grid-fallbacks
+// ---------------------------------------------
+
+@mixin grid-override($browser: false) {
+	@if($browser == "legacy") {
+		// Win/IE 11 and lower
+		@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+			@content;
+		}
+
+		// MS/Edge 15 and lower
+		@supports(display: -ms-grid) {
+			@content;
+		}
+    } @else {
+		// Win/IE 11 and lower
+		@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+			@content;
+		}
+
+		// MS/Edge 15 and lower
+		@supports(display: -ms-grid) {
+			@content;
+		}
+
+		// Modern and Win/Edge 16+
+		@supports (display: grid) or ((display: grid) and (display: -ms-grid)) {
+			@content;
+		}
+	}
+}
+
+// ---------------------------------------------
+// Basic MS CSS Grid and W3C CSS Grid columns or rows
+//
+// Usage: @include grid-basic(5, 1fr, 22px); // Repeat 5 columns, 1fr width, with 22px gap
+// Usage: @include grid-basic(5, 1fr, 5px, rows); // Repeat 5 rows, 1fr width, with 5px gap
+// ---------------------------------------------
+
+@mixin grid-basic($repeat: 1, $width: 1fr, $gap: 20px, $kind: columns) {
+	$ieRepeat: $repeat - 1;
+	-ms-grid-#{$kind}: $width unquote("(#{$gap} #{$width})[#{$ieRepeat}]");
+	grid-template-#{$kind}: repeat($repeat, $width);
+	grid-gap: $gap;
+}
+// ---------------------------------------------
+// Companion mixin for above grid-basic mixin
+// Win/IE10 and 11 old CSS Grid, placement of grid-child items
+// Skipping 1 (semi) grid gap
+// $repeat arg. value must be same as above $repeat arg. value
+//
+// Usage: @include grid-basic-ie-placement(5); // Place grid-child items in each column, skipping the (semi-column) 'gap'
+// Usage: @include grid-basic-ie-placement(5, row); // Place grid-child items in each row, skipping the (semi-row) 'gap'
+// ---------------------------------------------
+
+@mixin grid-basic-ie-placement($repeat: 1, $kind: column) {
+	@for $i from 1 through $repeat {
+		&:nth-child(#{$i}) {
+			@if($i > 1) {
+				-ms-grid-#{$kind}: $i * 2 - 1;
+			} @else {
+				-ms-grid-#{$kind}: $i;
+			}
+		}
+	}
+}

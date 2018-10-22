@@ -1,0 +1,12 @@
+.catalog {
+	@include flexbox();
+	
+	&__sidebar {
+		width: 270px;
+		margin-right: 20px;
+	}
+	
+	&__body {
+		@include flex($fg: 1);
+	}
+}

@@ -1,0 +1,15 @@
+mixin slide(options)
+	- opitons = options || {};
+	- var imageClasses = [];
+	- var imageStyles = 'background-image: url(' + options.image + ')';
+
+	if options.size
+		- imageClasses.push('slide__image_' + options.size);
+
+	.slide
+		.slide__image(style=imageStyles, class=imageClasses)
+
+		if options.title
+			.slide__container.container
+				.slide__content.container__inner
+					.slide__title!= options.title

@@ -1,0 +1,28 @@
+mixin catalog-card(options)
+	- options = options || {};
+
+	.catalog-card
+		a.catalog-card__cover(href="javascript:void(0);")
+			img.catalog-card__image(src="i/bitmapped/demo/card.png", alt="")
+			.catalog-card__cover-overlay
+				.catalog-card__cover-more.button.button_lightbox
+					span.button.button__inner
+						span.button.button__text увеличить
+		.catalog-card__title Зеркальная мозаика, серия Base Vivere
+		.catalog-card__price
+			span.catalog-card__price-text 67 р./лист
+			span.catalog-card__price-text 670 р./м
+				sup 2
+		.catalog-card__hide-area
+			.catalog-card__number
+				input.catalog-card__number-field(type="text")
+			.catalog-card__state
+				span.catalog-card__state-label В наличии:
+				span.catalog-card__state-value Под заказ
+			.catalog-card__data
+				.catalog-card__data-block
+					span.catalog-card__state-label Размер:
+					span.catalog-card__state-value 100x100 мм
+				.catalog-card__data-block
+					span.catalog-card__state-label Поверхность:
+					span.catalog-card__state-value Матовая

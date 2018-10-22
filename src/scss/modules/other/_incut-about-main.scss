@@ -1,0 +1,47 @@
+.incut-about-main {
+	@include flexbox();
+	@include justify-content($value: space-between);
+	
+	@media screen and (max-width: $screen_tablet-large) {
+		display: block;
+	}
+	
+	&__description {
+		@include flex($fg: 0, $fs: 0, $fb: 48%);
+		width: 50%;
+		
+		font-size: 28px;
+		
+		@media screen and (max-width: $screen_tablet-large) {
+			width: 100%;
+		}
+		
+		p {
+			margin: 20px 0;
+			
+			&:first-child {
+				margin-top: 0;
+			}
+			
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+	
+	&__cover {
+		@include flex($fg: 0, $fs: 0, $fb: 50%);
+		width: 50%;
+		margin-top: -80px;
+		margin-right: -$main-spacing-vertical;
+		
+		@media screen and (max-width: $screen_desktop-large) {
+			margin-right: -$main-spacing-vertical_desktop-medium;
+		}
+		
+		@media screen and (max-width: $screen_tablet-large) {
+			width: 100%;
+			margin: 40px 0 0;
+		}
+	}
+}

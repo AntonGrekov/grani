@@ -1,0 +1,132 @@
+.nav-product {
+	color: #FFFFFF;
+	
+	&__inner {
+		@include flexbox();
+		@include justify-content($value: space-between);
+		margin: 0 -10px;
+		
+		@media screen and (max-width: $screen_handset-large) {
+			display: block;
+			margin: 0;
+		}
+	}
+	
+	&__item {
+		position: relative;
+		
+		display: inline-block;
+		width: 33.333%;
+		height: 150px;
+		margin: 0 10px;
+		
+		text-align: center;
+		vertical-align: top;
+		color: inherit;
+		text-decoration: none;
+		
+		background: #a8a8a8;
+		box-shadow: 0 6px 10px rgba(0, 0, 0, 0.25);
+		border-radius: 2px;
+		cursor: pointer;
+		
+		@media screen and (max-width: $screen_handset-large) {
+			width: 100%;
+			height: 150px;
+			margin: 0 0 20px;
+		}
+		
+		&:hover {
+			text-decoration: none;
+		}
+		
+		&_active {
+			&::before {
+				content: "";
+				position: absolute;
+				top: -4px;
+				bottom: -4px;
+				left: -4px;
+				
+				width: 123px;
+				
+				border: 4px solid #FF0101;
+			}
+		}
+	}
+	
+	&__image {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 1;
+		
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+	}
+	
+	&__content {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 2;
+		
+		@include flexbox();
+		@include flex-direction($value: column);
+		@include justify-content($value: center);
+		@include align-items($value: center);
+		padding: 20px;
+	}
+	
+	&__title {
+		font-weight: 300;
+		font-size: 52px;
+		
+		@media screen and (max-width: 1800px) {
+			font-size: 40px;
+		}
+		
+		@media screen and (max-width: $screen_desktop-large) {
+			font-size: 32px;
+		}
+		
+		@media screen and (max-width: $screen_desktop-small) {
+			font-size: 24px;
+		}
+		
+		@media screen and (max-width: $screen_tablet-large-s) {
+			font-size: 18px;
+		}
+		
+		@media screen and (max-width: $screen_tablet-medium) {
+			font-size: 14px;
+		}
+		
+		@media screen and (max-width: $screen_handset-large) {
+			font-size: 24px;
+		}
+	}
+
+	&_theme_main &__item {
+		height: auto;
+		
+		@media screen and (max-width: $screen_handset-large) {
+			height: 150px;
+		}
+
+		&::after {
+			content: "";
+			
+			display: block;
+			padding-bottom: 100%;
+			
+			@media screen and (max-width: $screen_handset-large) {
+				content: none;
+			}
+		}
+	}
+}

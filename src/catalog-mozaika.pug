@@ -1,0 +1,159 @@
+extends extends/default
+
+block content
+	include helpers/mixins/other/container
+
+	include helpers/mixins/sliders/slide
+	+slide({
+		image: 'i/bitmapped/main-cover.png',
+		size: 'short'
+	})
+
+	.section-separator
+
+	+container()
+		include helpers/mixins/navigation/nav-product
+		+nav-product({
+			list: [
+				{
+					title: 'Стандартный <br>размер',
+					image: 'i/bitmapped/product-default.png'
+				},
+				{
+					title: 'Индивидуальный <br>размер',
+					image: 'i/bitmapped/product-personal.png'
+				},
+				{
+					title: 'Мозаика',
+					image: 'i/bitmapped/product-mosaic.png',
+					active: true
+				}
+			]
+		})
+
+	.section-separator.section-separator_large-s
+
+	+container()
+		include helpers/mixins/navigation/breadcrumbs
+		+breadcrumbs({
+			list: [
+				{
+					title: 'Стандартный размер ',
+					url: 'javascript:void(0);'
+				},
+				{
+					title: 'Индивидуальный размер'
+				}
+			]
+		})
+
+	.section-separator.section-separator_medium
+
+	+container()
+		section.section
+			.section__head
+				.heading
+					.heading__title
+						h1.title.title Индивидуальный размер
+					.heading__controls
+						.list-control
+							.list-control__item
+								span.list-control__label Сортировка:
+								a.list-control__value.list-control__value_asc(href="javascript:void(0);")
+									span.list-control__value-text По цене
+									span.list-control__value-icon
+										svg.list-control__value-svg
+											use(xlink:href='#icon-arrow-small-bottom')
+							.list-control__item
+								span.list-control__label Сортировка:
+								a.list-control__value.list-control__value_desc(href="javascript:void(0);")
+									span.list-control__value-text По цене
+									span.list-control__value-icon
+										svg.list-control__value-svg
+											use(xlink:href='#icon-arrow-small-bottom')
+			.section__body
+				.catalog
+					.catalog__sidebar
+						form.filters
+							.filters__head
+								.filters__head-title Фильтр
+							.filters__body
+								.filters__block
+									.collapse-content.collapse-content_active
+										.collapse-content__head.js-collapse-content-button
+											.collapse-content__head-title Цвет
+											.collapse-content__head-icon
+												svg.collapse-content__head-svg
+													use(xlink:href='#icon-chevron-bottom')
+										.collapse-content__body(style="display: block;")
+											.collapse-content__body-inner
+												img(src="i/bitmapped/demo/picker.png", alt="")
+								.filters__block
+									.collapse-content
+										.collapse-content__head.js-collapse-content-button
+											.collapse-content__head-title Поверхность
+											.collapse-content__head-icon
+												svg.collapse-content__head-svg
+													use(xlink:href='#icon-chevron-bottom')
+										.collapse-content__body
+											.collapse-content__body-inner
+												img(src="i/bitmapped/demo/picker.png", alt="")
+					.catalog__body
+						include helpers/mixins/other/catalog-card
+						.catalog-cards.grid-4
+							- var count = 0
+							while count < 16
+								.catalog-cards__col.col
+									+catalog-card()
+									- count++;
+
+						.section-separator.section-separator_large
+
+						include helpers/mixins/navigation/pagination
+						+pagination()
+
+				.section-separator.section-separator_medium-s
+
+				.extended-section
+					.extended-section__sidebar
+						.extended-section__sidebar-head
+							.extended-section__sidebar-head-title Дополнительные материалы
+						.extended-section__sidebar-body
+							.extended-section__sidebar-block
+								.extended-section__sidebar-block-title Фото
+								.extended-section__sidebar-block-content
+									.grid-3
+										.col
+											img(src="i/bitmapped/demo/image-2.7.png", alt="")
+										.col
+											img(src="i/bitmapped/demo/image-2.7.png", alt="")
+										.col
+											img(src="i/bitmapped/demo/image-2.7.png", alt="")
+										.col
+											img(src="i/bitmapped/demo/image-2.7.png", alt="")
+										.col
+											img(src="i/bitmapped/demo/image-2.7.png", alt="")
+										.col
+											img(src="i/bitmapped/demo/image-2.7.png", alt="")
+							.extended-section__sidebar-block
+								.extended-section__sidebar-block-title Видео
+								.extended-section__sidebar-block-content
+									.grid-2
+										.col
+											img(src="i/bitmapped/demo/image-2.7.png", alt="")
+										.col
+											img(src="i/bitmapped/demo/image-2.7.png", alt="")
+							.extended-section__sidebar-block
+								.extended-section__sidebar-block-title Доставка и Оплата
+						.extended-section__sidebar-decor
+					.extended-section__body
+						.description
+							.description__title Описание
+							.description__text
+								p Реферат по физике <br>
+									| Тема: «Квантовый сверхпроводник: поток или неоднородность?»<br>
+									| Если для простоты пренебречь потерями на теплопроводность, то видно, что расслоение нейтрализует резонатор. Солитон выталкивает лептон как при нагреве, так и при охлаждении. При погружении в жидкий кислород вихрь расщепляет магнит. Расслоение пространственно отклоняет квантово-механический осциллятор. Электрон мгновенно растягивает квант, генерируя периодические импульсы синхротронного излучения.
+								p Поверхность, несмотря на некоторую вероятность коллапса, воспроизводима в лабораторных условиях. Вселенная отталкивает газ по мере распространения сигнала в среде с инверсной населенностью. Кварк притягивает барионный солитон по мере распространения сигнала в среде с инверсной населенностью. Солитон, как можно показать с помощью не совсем тривиальных вычислений, искажает электрон. Течение среды перпендикулярно.
+								p Сверхновая едва ли квантуема. Колебание вращает объект. Тело переворачивает фотон.
+
+				.section-separator.section-separator_large
