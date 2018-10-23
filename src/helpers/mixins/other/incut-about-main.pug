@@ -1,0 +1,8 @@
+mixin incut-about-main(options)
+	- options = options || {};
+
+	.incut-about-main
+		.incut-about-main__description
+			block
+		.incut-about-main__cover
+			img.incut-about-main__image(src=options.image, alt="")

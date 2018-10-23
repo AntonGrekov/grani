@@ -1,0 +1,7 @@
+mixin description(options)
+	- options = options || {};
+
+	.description
+		.description__title= options.title
+		.description__text
+			block

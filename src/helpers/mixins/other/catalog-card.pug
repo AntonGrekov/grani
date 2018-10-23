@@ -2,7 +2,7 @@ mixin catalog-card(options)
 	- options = options || {};
 
 	.catalog-card
-		a.catalog-card__cover(href="javascript:void(0);")
+		a.catalog-card__cover.js-fancybox(href="i/bitmapped/demo/card.png", data-fancybox="gallery")
 			img.catalog-card__image(src="i/bitmapped/demo/card.png", alt="")
 			.catalog-card__cover-overlay
 				.catalog-card__cover-more.button.button_lightbox

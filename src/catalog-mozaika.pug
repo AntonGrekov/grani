@@ -74,30 +74,17 @@ block content
 			.section__body
 				.catalog
 					.catalog__sidebar
+						include helpers/mixins/other/collapse-content
 						form.filters
 							.filters__head
 								.filters__head-title Фильтр
 							.filters__body
 								.filters__block
-									.collapse-content.collapse-content_active
-										.collapse-content__head.js-collapse-content-button
-											.collapse-content__head-title Цвет
-											.collapse-content__head-icon
-												svg.collapse-content__head-svg
-													use(xlink:href='#icon-chevron-bottom')
-										.collapse-content__body(style="display: block;")
-											.collapse-content__body-inner
-												img(src="i/bitmapped/demo/picker.png", alt="")
+									+collapse-content({title: 'Цвет', active: true})
+										img(src="i/bitmapped/demo/picker.png", alt="")
 								.filters__block
-									.collapse-content
-										.collapse-content__head.js-collapse-content-button
-											.collapse-content__head-title Поверхность
-											.collapse-content__head-icon
-												svg.collapse-content__head-svg
-													use(xlink:href='#icon-chevron-bottom')
-										.collapse-content__body
-											.collapse-content__body-inner
-												img(src="i/bitmapped/demo/picker.png", alt="")
+									+collapse-content({title: 'Поверхность'})
+										img(src="i/bitmapped/demo/picker.png", alt="")
 					.catalog__body
 						include helpers/mixins/other/catalog-card
 						.catalog-cards.grid-4
@@ -147,13 +134,12 @@ block content
 								.extended-section__sidebar-block-title Доставка и Оплата
 						.extended-section__sidebar-decor
 					.extended-section__body
-						.description
-							.description__title Описание
-							.description__text
-								p Реферат по физике <br>
-									| Тема: «Квантовый сверхпроводник: поток или неоднородность?»<br>
-									| Если для простоты пренебречь потерями на теплопроводность, то видно, что расслоение нейтрализует резонатор. Солитон выталкивает лептон как при нагреве, так и при охлаждении. При погружении в жидкий кислород вихрь расщепляет магнит. Расслоение пространственно отклоняет квантово-механический осциллятор. Электрон мгновенно растягивает квант, генерируя периодические импульсы синхротронного излучения.
-								p Поверхность, несмотря на некоторую вероятность коллапса, воспроизводима в лабораторных условиях. Вселенная отталкивает газ по мере распространения сигнала в среде с инверсной населенностью. Кварк притягивает барионный солитон по мере распространения сигнала в среде с инверсной населенностью. Солитон, как можно показать с помощью не совсем тривиальных вычислений, искажает электрон. Течение среды перпендикулярно.
-								p Сверхновая едва ли квантуема. Колебание вращает объект. Тело переворачивает фотон.
+						include helpers/mixins/other/description
+						+description({title: 'Описание'})
+							p Реферат по физике <br>
+								| Тема: «Квантовый сверхпроводник: поток или неоднородность?»<br>
+								| Если для простоты пренебречь потерями на теплопроводность, то видно, что расслоение нейтрализует резонатор. Солитон выталкивает лептон как при нагреве, так и при охлаждении. При погружении в жидкий кислород вихрь расщепляет магнит. Расслоение пространственно отклоняет квантово-механический осциллятор. Электрон мгновенно растягивает квант, генерируя периодические импульсы синхротронного излучения.
+							p Поверхность, несмотря на некоторую вероятность коллапса, воспроизводима в лабораторных условиях. Вселенная отталкивает газ по мере распространения сигнала в среде с инверсной населенностью. Кварк притягивает барионный солитон по мере распространения сигнала в среде с инверсной населенностью. Солитон, как можно показать с помощью не совсем тривиальных вычислений, искажает электрон. Течение среды перпендикулярно.
+							p Сверхновая едва ли квантуема. Колебание вращает объект. Тело переворачивает фотон.
 
 				.section-separator.section-separator_large

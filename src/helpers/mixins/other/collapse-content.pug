@@ -1,0 +1,17 @@
+mixin collapse-content(options)
+	- options = options || {};
+	- var classes = [];
+
+	if options.active
+		- classes.push('collapse-content_active');
+		- var styles = 'display: block;';
+
+	.collapse-content(class=classes)
+		.collapse-content__head.js-collapse-content-button
+			.collapse-content__head-title= options.title
+			.collapse-content__head-icon
+				svg.collapse-content__head-svg
+					use(xlink:href='#icon-chevron-bottom')
+		.collapse-content__body(style=styles)
+			.collapse-content__body-inner
+				block

@@ -1,0 +1,8 @@
+mixin more(options)
+	- options = options || {};
+
+	a.more(href="javascript:void(0);")
+		span.more__icon
+			svg.more__svg
+				use(xlink:href="#icon-arrow-long-right")
+		span.more__text Читать все

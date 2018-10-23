@@ -1,0 +1,12 @@
+mixin benefits__block(options)
+	- options = options || {};
+	- var icon = '#' + options.icon;
+
+	.benefits__block
+		.benefits__icon.benefits__icon_delivery
+			svg.benefits__svg
+				use(xlink:href=icon)
+		.benefits__title= options.title
+		.benefits__more
+			svg.benefits__svg
+				use(xlink:href="#icon-arrow-medium-right")

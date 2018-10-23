@@ -3,53 +3,43 @@ extends extends/main
 block content
 	include helpers/mixins/other/container
 	include helpers/mixins/sliders/slider
+	include helpers/mixins/other/incut-about-main
 
 	include helpers/mixins/sliders/slide
 	+slider({
-	    theme: 'main',
+		theme: 'main',
 		jsClass: 'js-slider-main',
 		pagination: true,
 		buttons: true
 	})
 		.slider__block.swiper-slide
 			+slide({
-                title: 'Изготовление зеркальной плитки по индивидуальным размерам',
-                image: 'i/bitmapped/main-cover.png',
-                size: 'full-height'
-            })
+				title: 'Изготовление зеркальной плитки по индивидуальным размерам',
+				image: 'i/bitmapped/main-cover.png',
+				size: 'full-height'
+			})
 		.slider__block.swiper-slide
 			+slide({
-                title: 'Изготовление зеркальной плитки по индивидуальным размерам',
-                image: 'i/bitmapped/main-cover.png',
-                size: 'full-height'
-            })
+				title: 'Изготовление зеркальной плитки по индивидуальным размерам',
+				image: 'i/bitmapped/main-cover.png',
+				size: 'full-height'
+			})
 
 	main.main
 		section.benefits
-			.benefits__block
-				.benefits__icon.benefits__icon_delivery
-					svg.benefits__svg
-						use(xlink:href="#icon-delivery")
-				.benefits__title Доставка товара по всей территории РФ к дому
-				.benefits__more
-					svg.benefits__svg
-						use(xlink:href="#icon-arrow-medium-right")
-			.benefits__block
-				.benefits__icon.benefits__icon_wallet
-					svg.benefits__svg
-						use(xlink:href="#icon-wallet")
-				.benefits__title Оплата любым удобным для вас способом
-				.benefits__more
-					svg.benefits__svg
-						use(xlink:href="#icon-arrow-medium-right")
-			.benefits__block
-				.benefits__icon.benefits__icon_gift
-					svg.benefits__svg
-						use(xlink:href="#icon-gift")
-				.benefits__title Выбирайте подарки и получайте скидки
-				.benefits__more
-					svg.benefits__svg
-						use(xlink:href="#icon-arrow-medium-right")
+			include helpers/mixins/other/benefits__block
+			+benefits__block({
+			    title: 'Доставка товара по всей территории РФ к дому',
+				icon: 'icon-delivery'
+			})
+			+benefits__block({
+			    title: 'Оплата любым удобным для вас способом',
+				icon: 'icon-wallet'
+			})
+			+benefits__block({
+			    title: 'Выбирайте подарки и получайте скидки',
+				icon: 'icon-gift'
+			})
 
 		.section-separator.section-separator_large
 
@@ -80,12 +70,13 @@ block content
 				.section__head
 					.title.title_main Архитекторы и Дизайнеры
 				.section__body
-					.incut-about-main
-						.incut-about-main__description
-							p Гештальтпсихология, конечно, очевидна не для всех. Идеи гедонизма занимают центральное место в утилитаризме Милля и Бентама, однако импликация философски оспособляет позитивизм, tertium nоn datur. Освобождение, как принято считать, преобразует интеллект, хотя в официозе принято обратное. Апостериори, мир рефлектирует предмет деятельности. Врожденная интуиция индуцирует неоднозначный гедонизм. Структурализм, как следует из вышесказанного, индуцирует предмет деятельности, tertium nоn datur.
-							p Эсхатологическая идея, конечно, амбивалентно оспособляет позитивизм. Боль подчеркивает позитивизм. Представляется логичным, что суждение непредсказуемо.
-						.incut-about-main__cover
-							img.incut-about-main__image(src="i/bitmapped/archAndDesign.png", alt="")
+					+incut-about-main({
+                        image: 'i/bitmapped/archAndDesign.png'
+                    })
+						p Гештальтпсихология, конечно, очевидна не для всех. Идеи гедонизма занимают центральное место в утилитаризме Милля и Бентама, однако импликация философски оспособляет позитивизм, tertium nоn datur. Освобождение, как принято считать, преобразует интеллект, хотя в официозе принято обратное. Апостериори, мир рефлектирует предмет деятельности. Врожденная интуиция индуцирует неоднозначный гедонизм. Структурализм, как следует из вышесказанного, индуцирует предмет деятельности, tertium nоn datur.
+						p Эсхатологическая идея, конечно, амбивалентно оспособляет позитивизм. Боль подчеркивает позитивизм. Представляется логичным, что суждение непредсказуемо.
+
+		.section-separator.section-separator_main
 
 		.section-separator.section-separator_main
 
@@ -94,12 +85,11 @@ block content
 				.section__head
 					.title.title_main Немного о нас
 				.section__body
-					.incut-about-main
-						.incut-about-main__description
-							p Гештальтпсихология, конечно, очевидна не для всех. Идеи гедонизма занимают центральное место в утилитаризме Милля и Бентама, однако импликация философски оспособляет позитивизм, tertium nоn datur. Освобождение, как принято считать, преобразует интеллект, хотя в официозе принято обратное. Апостериори, мир рефлектирует предмет деятельности. Врожденная интуиция индуцирует неоднозначный гедонизм. Структурализм, как следует из вышесказанного, индуцирует предмет деятельности, tertium nоn datur.
-							p Эсхатологическая идея, конечно, амбивалентно оспособляет позитивизм. Боль подчеркивает позитивизм. Представляется логичным, что суждение непредсказуемо.
-						.incut-about-main__cover
-							img.incut-about-main__image(src="i/bitmapped/about.png", alt="")
+					+incut-about-main({
+					    image: 'i/bitmapped/about.png'
+					})
+						p Гештальтпсихология, конечно, очевидна не для всех. Идеи гедонизма занимают центральное место в утилитаризме Милля и Бентама, однако импликация философски оспособляет позитивизм, tertium nоn datur. Освобождение, как принято считать, преобразует интеллект, хотя в официозе принято обратное. Апостериори, мир рефлектирует предмет деятельности. Врожденная интуиция индуцирует неоднозначный гедонизм. Структурализм, как следует из вышесказанного, индуцирует предмет деятельности, tertium nоn datur.
+						p Эсхатологическая идея, конечно, амбивалентно оспособляет позитивизм. Боль подчеркивает позитивизм. Представляется логичным, что суждение непредсказуемо.
 
 		.section-separator.section-separator_main
 
@@ -123,10 +113,7 @@ block content
 							date: '15 июня 2018'
 						})
 				.section__footer
-					a.more(href="javascript:void(0);")
-						span.more__icon
-							svg.more__svg
-								use(xlink:href="#icon-arrow-long-right")
-						span.more__text Читать все
+					include helpers/mixins/navigation/more
+					+more()
 
 		.section-separator.section-separator_main

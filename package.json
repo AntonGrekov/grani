@@ -17,6 +17,7 @@
     "load-grunt-tasks": "^4.0.0"
   },
   "dependencies": {
+    "@fancyapps/fancybox": "3.5.2",
     "gridlex": "2.7.1",
     "jquery": "3.3.1",
     "swiper": "4.4.1"
