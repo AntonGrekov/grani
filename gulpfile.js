@@ -13,11 +13,11 @@ var gulp 					= require("gulp"),
 
 var paths = {
 
-				cwd: './app',
+				cwd: './dist',
 
 				pug: {
-					src: 'pug/pages/*.pug',
-					dest: './'
+					src: 'src/**/*.pug',
+					dest: './dist'
 				},
 
 				styles: {
