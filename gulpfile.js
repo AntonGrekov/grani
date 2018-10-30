@@ -16,18 +16,24 @@ var paths = {
 				cwd: './dist',
 
 				pug: {
-					src: 'src/**/*.pug',
+					watch: 'src/**/*.pug',
+					src: 'src/*.pug',
 					dest: './dist'
 				},
 
 				styles: {
-					src: 'app/sass/**/*.+(sass|scss)',  	
-					dest: 'app/css/'
+					src: 'src/sass/**/*.+(sass|scss)',  	
+					dest: 'dist/css/'
 				}, 
 
 				js: {
-					src: ['app/js/*.js', '!app/js/*.min.js'],
-					dest: 'app/js'
+					src: 'src/js/*.js',
+					dest: 'dist/js'
+				},
+
+				jsUglify: {
+					src: ['src/js/*.js', '!app/js/*.min.js'],
+					dest: 'dist/js'
 				}
 
 }
@@ -45,10 +51,16 @@ gulp.task('server', () => {
 
 gulp.task('pug', (cb) => {
 	gulp.src(paths.pug.src)
-	 .pipe(pug({
-		pretty: true
+ 	 .pipe(plumber(function (error) {
+		gutil.log(error.message);
+		this.emit('end');
 	 }))
-	 .pipe(gulp.dest(paths.pug.dest));
+	 .pipe(pug({
+		pretty: true,
+	 }))
+	 .pipe(gulp.dest(paths.pug.dest))
+	 .pipe(browserSync.reload({ stream: true }));
+	 reloadHTML();
 	 cb();
 })	
 
@@ -65,8 +77,13 @@ gulp.task('sass', () => {
 
 
 
+gulp.task('copy', function () {
+	 return gulp.src(paths.js.src)
+	 		  .pipe(gulp.dest(paths.js.dest));
+})
+
 gulp.task('uglify', function() {
-	return gulp.src(paths.js.src)
+	return gulp.src(paths.jsUglify.src)
 		   .pipe(uglifyJs())
 		   .on('error', function (err) {
 				console.error('Error in js task', err.toString());
@@ -74,7 +91,7 @@ gulp.task('uglify', function() {
 		   .pipe(rename(function(path) {
 			   path.basename += ".min"
 		   }))
-		   .pipe(gulp.dest('app/js/'))
+		   .pipe(gulp.dest('src/js/'))
 		   .pipe(browserSync.reload({ stream: true }));
 })
 
@@ -85,13 +102,13 @@ gulp.task('compress', gulp.series('uglify', () => {
 }));
 
 
-gulp.task('build_jquery', function () {
-	return gulp.src('app/bower_components/jquery/dist/jquery.js')
-		.pipe(concat('jquery.min.js'))
-		.pipe(uglify())
-		.pipe(gulp.dest('app/js'))
-		.pipe(browserSync.reload({ stream: true }));
-})
+// gulp.task('build_jquery', function () {
+// 	return gulp.src('app/bower_components/jquery/dist/jquery.js')
+// 		.pipe(concat('jquery.min.js'))
+// 		.pipe(uglify())
+// 		.pipe(gulp.dest('app/js'))
+// 		.pipe(browserSync.reload({ stream: true }));
+// })
 
 
 function reloadHTML(cb) {
@@ -101,11 +118,11 @@ function reloadHTML(cb) {
 
 
 gulp.task('watch', gulp.parallel('server', function () {
-	 gulp.watch('app/*.html', reloadHTML);
+	//  gulp.watch('app/*.html', reloadHTML);
 	 gulp.watch(paths.styles.src, gulp.series('sass'));
-	 gulp.watch(paths.js.src, gulp.series('compress'));
-	 gulp.watch(paths.pug.src, gulp.series('pug'));
- 	 gulp.watch('app/bower_components/jquery/dist/jquery.js', gulp.series('build_jquery'));
+	 gulp.watch(paths.js.src, gulp.series('uglify'));
+	 gulp.watch(paths.pug.watch, gulp.series('pug'));
+ 	//  gulp.watch('app/bower_components/jquery/dist/jquery.js', gulp.series('build_jquery'));
  	//  gulp.watch(paths.styles.dest, reloadHTML)
 }));
 
