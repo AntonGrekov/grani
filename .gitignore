@@ -1,4 +1,9 @@
 node_modules/
+<<<<<<< HEAD
+=======
+bower_components/
+package.json
+>>>>>>> 2509711ce90be53994c766b05e4fa316e78ce4f6
 .idea
 package.json
 bower_components/
