@@ -22,8 +22,10 @@ var paths = {
 				},
 
 				styles: {
-					src: 'src/sass/**/*.+(sass|scss)',  	
-					dest: 'dist/css/'
+
+					watch: 'src/**/*.+(sass|scss)',
+					src:   'src/scss/style.scss',
+					dest:  'dist/css/'
 				}, 
 
 				js: {
@@ -78,7 +80,7 @@ gulp.task('sass', () => {
 
 
 gulp.task('copy', function () {
-	 return gulp.src(paths.js.src)
+	 return  gulp.src(paths.js.src)
 	 		  .pipe(gulp.dest(paths.js.dest));
 })
 
@@ -111,15 +113,15 @@ gulp.task('compress', gulp.series('uglify', () => {
 // })
 
 
-function reloadHTML(cb) {
+function reloadHTML() {
 		browserSync.reload();
-		cb();
+		return true;
 }
 
 
 gulp.task('watch', gulp.parallel('server', function () {
 	//  gulp.watch('app/*.html', reloadHTML);
-	 gulp.watch(paths.styles.src, gulp.series('sass'));
+	 gulp.watch(paths.styles.watch, gulp.series('sass'));
 	 gulp.watch(paths.js.src, gulp.series('uglify'));
 	 gulp.watch(paths.pug.watch, gulp.series('pug'));
  	//  gulp.watch('app/bower_components/jquery/dist/jquery.js', gulp.series('build_jquery'));

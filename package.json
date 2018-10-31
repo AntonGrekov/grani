@@ -1,5 +1,5 @@
 {
-  "name": "radix",
+  "name": "",
   "version": "1.0.0",
   "description": "Simple Gulp Start Template (Sass, Browsersync, Uglify, cleanCSS, Autoprefixer)",
   "main": "index.js",
@@ -9,10 +9,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@fancyapps/fancybox": "^3.5.2",
     "bower": "^1.8.4",
     "browser-sync": "^2.18.13",
     "clean-css": "^4.1.8",
     "del": "^3.0.0",
+    "fancybox": "^3.0.1",
+    "gridlex": "^2.7.1",
     "gulp": "^4.0.0",
     "gulp-autoprefixer": "^5.0.0",
     "gulp-cache": "^1.0.2",
@@ -29,7 +32,9 @@
     "gulp-tinypng": "^1.0.2",
     "gulp-uglify": "^3.0.0",
     "gulp-uglify-es": "^1.0.4",
-    "imagemin-pngquant": "^6.0.0"
+    "imagemin-pngquant": "^6.0.0",
+    "jquery.fancybox": "^2.1.5",
+    "swiper": "^4.4.1"
   },
   "dependencies": {
     "onscroll-effect": "^1.1.1"

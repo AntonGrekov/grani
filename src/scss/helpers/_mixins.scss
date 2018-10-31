@@ -28,9 +28,9 @@
 		font-family: '#{$font-name}';
 		src: url('#{$dir-font}/#{$font-file}.eot');
 		src: url('#{$dir-font}/#{$font-file}.eot?#iefix') format('embedded-opentype'),
-			 url('#{$dir-font}/#{$font-file}.woff') format('woff'),
-			 url('#{$dir-font}/#{$font-file}.ttf') format('truetype'),
-			 url('#{$dir-font}/#{$font-file}.svg##{$font-file}') format('svg');
+			  url('#{$dir-font}/#{$font-file}.woff') format('woff'),
+			  url('#{$dir-font}/#{$font-file}.ttf') format('truetype'),
+			  url('#{$dir-font}/#{$font-file}.svg##{$font-file}') format('svg');
 		font-weight: $font-weight;
 		font-style: $font-style;
 	}
