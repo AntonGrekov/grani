@@ -11,6 +11,7 @@
 		
 		@include flexbox();
 		@include align-items($value: center);
+		
 		width: 33.333%;
 		height: 138px;
 		padding: 0 60px;

@@ -1,6 +1,7 @@
 extends extends/main
 
 block content
+
 	include helpers/mixins/other/container
 	include helpers/mixins/sliders/slider
 	include helpers/mixins/other/incut-about-main
@@ -30,15 +31,18 @@ block content
 			include helpers/mixins/other/benefits__block
 			+benefits__block({
 			    title: '!!!Доставка товара по всей территории РФ к дому',
-				icon: 'icon-delivery'
+				icon: 'icon-delivery',
+				type: 'delivery'
 			})
 			+benefits__block({
 			    title: 'Оплата любым удобным для вас способом',
-				icon: 'icon-wallet'
+				icon: 'icon-wallet',
+				type: 'wallet'
 			})
 			+benefits__block({
 			    title: 'Выбирайте подарки и получайте скидки',
-				icon: 'icon-gift'
+				icon: 'icon-gift',
+				type: 'gift'
 			})
 
 		.section-separator.section-separator_large
@@ -50,7 +54,7 @@ block content
                 list: [
                     {
                         title: 'Стандартный <br>размер',
-                        image: 'i/bitmapped/product-default.png'
+                        image: 'i/bitmapped/product-default.png',
                     },
                     {
                         title: 'Индивидуальный <br>размер',

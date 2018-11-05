@@ -1,9 +1,14 @@
 mixin benefits__block(options)
 	- options = options || {};
 	- var icon = '#' + options.icon;
+	- var classes = []
+	
+
+	if options.type
+		- classes = "benefits__icon_" + options.type
 
 	.benefits__block
-		.benefits__icon.benefits__icon_delivery
+		.benefits__icon(class=classes)
 			svg.benefits__svg
 				use(xlink:href=icon)
 		.benefits__title= options.title
