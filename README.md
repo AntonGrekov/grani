@@ -1,3 +1,15 @@
+AntonGrekov:
+My first Pug/Jade project. Was very confusing to meet a developer knowing so much, as i thought to that moment, and working with that many 
+technologies - Pug/SASS/Trello/BitBucket/BEM-naming. It was like a cold water to me. But i did well and learned a lot, since then i am in love using 
+templating languages in web programming - pug/jade, phug, js-language incorporated in pug, DTL(django templating language), Blade(PHP templating language) and others
+
+Перевод:
+Мой первый проект где я впервые столкнулся с Pug/SCSS. Мне в пару дали более опытного веб-разработчика, который имел опыт работы с гораздо большим набором
+инструментов, чем я на тот момент мог себе представить. Это было большим шоком для меня, я не понимал ничего, осознал насколько низок мой уровень(сейчас я не скажу, что знаю намного больше :) всегда надо развиваться). Тем не менее я не отступил назад, а довольно быстро выучил новые технологии и включился в работу. 
+В результате сейчас я использую Pug/SCSS постоянно в работе и очень рад.
+
+
+
 # grani static site generator with Pug
 
 *By , 2018*
