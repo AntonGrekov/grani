@@ -225,3 +225,65 @@ $(function() {
         }
     });
 });
+
+
+// Add close button appearance when click on top right buttons
+// Показ/скрытие кнопки закрыть, сразу в месте клика, при клике по любой из иконок
+$(function () {
+    var classes   = [],
+        saveHTML  = "",
+        closeHTML = "<span class='button__inner'><span class='button__icon button__icon_valign'><svg class='button__icon-svg'><use xlink: href='#icon-close'></use></svg></span></span>";
+
+
+    // Все кнопки в правом верхнем углу
+    $buttons = $('.js-button-close');
+
+    $buttons.on('click', function (event) {
+        event.preventDefault();
+
+
+        // Исключает возможность клика по нескольким иконкам одновременно
+        // Тело условия сработает только если до этого не было выбрано ни одного
+        // пункта меню либо же, в случае если уже выбран пункт, клик произведен
+        // только по кнопке закрытия модального окна (X)
+        if (!$buttons.hasClass('button_close') ||
+            $(this).hasClass('button_close')
+           ) {
+
+            
+            if ($(this).hasClass('button_close')) { 
+                // Если клик произведен по кнопке закрыть
+                // Возвращаем сохраненный ранее HTML
+                // и классы
+
+                // Return source HTML
+                $(this).html(saveHTML);
+                // Return source classes
+                $(this).removeClass();
+                $(this).addClass(classes);
+
+            } else {
+                // Это клик по одной из иконок в правом верхнем ряду
+                // Сохраняем html и классы
+
+                // Save classes and HTML
+                classes = $(this).attr("class").split(' ');
+                saveHTML = $(this).html();
+
+                // Устанавливаем html и классы для кнопки закрытия
+                // Change icon and html to close button
+                $(this).html(closeHTML);
+                $(this).removeClass();
+                $(this).addClass("button button_icon-default button_close js-button-close");
+            }
+        }
+
+
+
+    });
+
+
+
+})
+
+

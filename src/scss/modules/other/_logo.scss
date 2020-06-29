@@ -1,0 +1,7 @@
+.logo {
+
+   @include numberOfChildren(test, 3 5 6){
+      color: red;
+   }
+
+}

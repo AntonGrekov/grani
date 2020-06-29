@@ -122,7 +122,7 @@ function reloadHTML(cb) {
 gulp.task('watch', gulp.parallel('server', function () {
 	//  gulp.watch('app/*.html', reloadHTML);
 	 gulp.watch(paths.styles.watch, gulp.series('sass'));
-	 gulp.watch(paths.js.src, gulp.series('uglify'));
+	 gulp.watch(paths.js.src, gulp.series('copy', reloadHTML));
 	 gulp.watch(paths.pug.watch, gulp.series('pug', reloadHTML));
  	//  gulp.watch('app/bower_components/jquery/dist/jquery.js', gulp.series('build_jquery'));
  	//  gulp.watch(paths.styles.dest, reloadHTML)

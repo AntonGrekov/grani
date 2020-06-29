@@ -4,6 +4,7 @@
 	background: none;
 	border: none;
 	cursor: pointer;
+	outline: none;
 	
 	&__inner {
 		@include flexbox();
@@ -14,6 +15,11 @@
 		display: inline-block;
 		
 		vertical-align: middle;
+		outline: none;
+
+		&_valign {
+			margin-top: 55px;
+		}
 	}
 	
 	&__icon-svg {
@@ -46,5 +52,10 @@
 	&_map &__icon {
 		width: 26px;
 		height: 35px;
+	}
+
+	&_close &__icon {
+		width: 78px;
+		height: 79px;
 	}
 }
